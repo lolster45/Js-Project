@@ -1,44 +1,45 @@
 let humanScore = 0;
 let computerScore = 0;
 let tieGames = 0; 
+const library = ["rock", "paper", "scissors"]
 
 function computerPlay () {
-    const library = ["rock", "paper", "scissors"]
     return library[Math.floor(Math.random() * library.length)];
 }
 
-
-function playRound(computerSelection, playerSelection) {
-    if (playerSelection === "rock" && computerSelection === "scissors" ||
-        playerSelection === "paper" && computerSelection === "rock" ||
-        playerSelection === "scissors" && computerSelection === "paper"
-        ) {
-        humanScore++;
-        return `You Win! ${playerSelection} beats ${computerSelection}`
-    }
-    else if (playerSelection === computerSelection ) {
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection ) {
         tieGames++
         return `Its a tie! ${playerSelection} = ${computerSelection}`
+    }
+    else if (
+        playerSelection === "rock" && computerSelection === "scissors" ||
+        playerSelection === "paper" && computerSelection === "rock" ||
+        playerSelection === "scissors" && computerSelection === "paper"
+    ) {
+        humanScore++;
+        return `You Win! ${playerSelection} beats ${computerSelection}`
     }
     else {
         computerScore++;
         return `You Loose! ${computerSelection} beats ${playerSelection}`
     }
+  
 }
 
 function game() {
     const playerInput = prompt("Choose: Rock, Paper, Scissors").toLowerCase();
-    if (playerInput != "") {
-        return playRound(computerPlay(), playerInput);
+    if (library.includes(playerInput)) { 
+        return console.log(playRound(playerInput, computerPlay()));
     }
     else {
-        alert("You need to choose one next time!")
+        game();
     }
 }
 
 for (let i = 0; i < 5; i++) {
-    console.log(game()) 
-    if (i >= 4) {  
+    game()
+    if (i >= 4) {   
         const winner = humanScore > computerScore ? "Human" : "Computer";
         console.log(`
         Human: ${humanScore}
