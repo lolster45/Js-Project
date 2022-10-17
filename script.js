@@ -16,11 +16,7 @@ function playRound(computerSelection, playerSelection) {
         humanScore++;
         return `You Win! ${playerSelection} beats ${computerSelection}`
     }
-    else if (
-        playerSelection === "rock" && computerSelection === "rock" ||
-        playerSelection === "paper" && computerSelection === "paper" ||
-        playerSelection === "scissors" && computerSelection === "scissors"  
-        ) {
+    else if (playerSelection === computerSelection ) {
         tieGames++
         return `Its a tie! ${playerSelection} = ${computerSelection}`
     }
