@@ -52,24 +52,3 @@ for (let i = 0; i < 5; i++) {
         `)
     }
 }
-
-
-
-
-
-// function game() {
-//     if (playerInput != null) {
-//         return playRound(computerChoice, playerInput)
-//     }
-// }
-
-
-// else if (computer === "rock" && input === "scissors") {
-//     return `You Loose! ${computer} beats ${input}`
-// }
-// else if (computer === "paper" && input === "rock") {
-//     return `You Loose! ${computer} beats ${input}`
-// }
-// else if (computer === "scissors" && input === "paper") {
-//     return `You Loose! ${computer} beats ${input}`
-// }
